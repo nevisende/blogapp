@@ -18,12 +18,14 @@ class PostsController < ApplicationController
 
     respond_to do |format|
       if @post.save
-        format.html { redirect_to "#{users_path}/#{current_user.id}" }
+        format.html { redirect_to @post }
       else
         format.html { render :new }
       end
     end
   end
+
+  private
 
   def post_params
     params.require(:post).permit(:author_id, :title, :text)
