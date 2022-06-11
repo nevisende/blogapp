@@ -23,7 +23,6 @@ ActiveRecord::Schema[7.0].define(version: 2022_06_11_042832) do
     t.bigint "author_id", null: false
     t.index ["author_id"], name: "index_comments_on_author_id"
     t.index ["post_id"], name: "index_comments_on_post_id"
-    t.index ["user_id"], name: "index_comments_on_user_id"
   end
 
   create_table "likes", force: :cascade do |t|
@@ -34,7 +33,6 @@ ActiveRecord::Schema[7.0].define(version: 2022_06_11_042832) do
     t.bigint "author_id", null: false
     t.index ["author_id"], name: "index_likes_on_author_id"
     t.index ["post_id"], name: "index_likes_on_post_id"
-    t.index ["user_id"], name: "index_likes_on_user_id"
   end
 
   create_table "posts", force: :cascade do |t|
@@ -47,7 +45,6 @@ ActiveRecord::Schema[7.0].define(version: 2022_06_11_042832) do
     t.bigint "user_id"
     t.bigint "author_id", null: false
     t.index ["author_id"], name: "index_posts_on_author_id"
-    t.index ["user_id"], name: "index_posts_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
