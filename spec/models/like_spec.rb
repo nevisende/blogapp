@@ -7,7 +7,7 @@ RSpec.describe Like, type: :model do
                         bio: 'Teacher from Mexico.',
                         post_counter: 0)
     post = Post.create(author: user, title: 'Hello', comments_counter: 3, likes_counter: 1_590_281)
-    like = Like.create(author: user, post: post)
+    like = Like.create(author: user, post:)
     like.update_likes_counter
     expect(post.likes_counter).to be 1_590_282
   end

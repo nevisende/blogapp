@@ -4,7 +4,7 @@ class LikesController < ApplicationController
     @like.update_likes_counter
 
     respond_to do |format|
-       flash[:notice] = if @like.save
+      flash[:notice] = if @like.save
                          'Liked'
                        else
                          'Something went wrong'
