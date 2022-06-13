@@ -1,6 +1,7 @@
 class PostsController < ApplicationController
   def index
     @user = User.find(params[:user_id])
+    @post.update_posts_counter
   end
 
   def show
@@ -18,8 +19,10 @@ class PostsController < ApplicationController
 
     respond_to do |format|
       if @post.save
+        flash[:notice] = 'Post created succesfully'
         format.html { redirect_to @post }
       else
+        flash[:notice] = 'Failed creation a post. Try again'
         format.html { render :new }
       end
     end
@@ -28,6 +31,6 @@ class PostsController < ApplicationController
   private
 
   def post_params
-    params.require(:post).permit(:author_id, :title, :text)
+    params.require(:post).permit(:author_id, :title, :text, :comments_counter, :likes_counter)
   end
 end
