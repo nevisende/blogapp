@@ -9,6 +9,7 @@
 
 # Ignore the log folder of VS code.
 .history
+.vscode
 # Ignore node_modules
 /node_modules
 # Ignore all logfiles and tempfiles.
